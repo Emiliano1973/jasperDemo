@@ -1,0 +1,1 @@
+before to test, execute script to create db in mysql5 the script is in the following path /mysql/script/script.sql
