@@ -27,7 +27,7 @@ public class JasperController {
     @ResponseBody
     public ResponseEntity<InputStreamResource> getReport() {
         JasperResponse jasperResponse=this.reportService.getJasperResponse();
-        return ResponseEntity.ok().contentLength(jasperResponse.documentLength())
+        return ResponseEntity.ok().contentLength(jasperResponse.getResponseLength())
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + jasperResponse.getFileName() + "\"")
                 .body(new InputStreamResource(jasperResponse.getResponse()));
     }

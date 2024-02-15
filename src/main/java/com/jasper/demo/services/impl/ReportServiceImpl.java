@@ -19,7 +19,6 @@ import java.sql.SQLException;
 public class ReportServiceImpl implements ReportService {
 
     private final JasperReport jasperReport;
-
     private final DataSource dataSource;
 
     public ReportServiceImpl(JasperReport jasperReport, DataSource dataSource) {
