@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.1.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="theworld2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a828b436-1f5f-432a-a9a8-b99d345ff015">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="countries"/>
+	<queryString language="SQL">
+		<![CDATA[select
+        c1_0.Code,
+		c1_0.Code2, 
+        c1_0.Name,
+        c1_0.LocalName,
+		c2_0.Name as capital_name,
+        c1_0.Region,
+		c1_0.Continent,
+        c1_0.SurfaceArea,
+        c1_0.IndepYear,
+        c1_0.Population,
+        c1_0.LifeExpectancy,
+        c1_0.GNP,
+        c1_0.GNPOld,
+        c1_0.GovernmentForm,
+        c1_0.HeadOfState
+
+    from
+        world.Country c1_0 
+    join
+        City c2_0 
+            on c2_0.ID=c1_0.capital 
+    group by
+        c1_0.Continent,
+        c1_0.Region,
+        c1_0.Code,
+        c1_0.Name
+    order by
+        c1_0.Continent asc,
+        c1_0.Region asc,
+        c1_0.Code asc,
+        c1_0.Name asc]]>
+	</queryString>
+	<field name="Code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Code"/>
+		<property name="com.jaspersoft.studio.field.label" value="Code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="Name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="capital_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="capital_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="city"/>
+	</field>
+	<field name="Region" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Region"/>
+		<property name="com.jaspersoft.studio.field.label" value="Region"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="Continent" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Continent"/>
+		<property name="com.jaspersoft.studio.field.label" value="Continent"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="IndepYear" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="IndepYear"/>
+		<property name="com.jaspersoft.studio.field.label" value="IndepYear"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<field name="GovernmentForm" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="GovernmentForm"/>
+		<property name="com.jaspersoft.studio.field.label" value="GovernmentForm"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="country"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="555" height="79" forecolor="#FFFFFF" backcolor="#000000" uuid="5340f2f2-73e7-4eed-a389-6dd0fd338d44"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[The World]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="81" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="17b46afa-08eb-47af-9ed3-a9677c6b5a78">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ef54374-55a6-4a79-b3e0-6e1a73283db9"/>
+				</reportElement>
+				<text><![CDATA[ISO CODE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="81" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="0ec6c986-c4f6-4b93-a3ed-0ece7f95e483">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1baa164-342e-4a9c-862d-fbc8e0270092"/>
+				</reportElement>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="160" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="076a058e-6e11-4108-b120-0796060dd48b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8bc76b0-5b1b-4c0f-b700-f783721a09c7"/>
+				</reportElement>
+				<text><![CDATA[CAPITAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="239" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="371a64f1-27cd-490c-933e-caaa5a3b8971">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b058a364-71cd-4834-bae2-d4ae6532bdba"/>
+				</reportElement>
+				<text><![CDATA[REGION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="318" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="49400f2d-b977-4041-a371-0abcd62bd75b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94333e61-5651-48f1-bc98-829f2b229831"/>
+				</reportElement>
+				<text><![CDATA[CONTINENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="397" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="89815d27-70d1-4a8a-a00b-6d170511da20">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4795e2c1-baf8-448a-ae6d-3aa5be644030"/>
+				</reportElement>
+				<text><![CDATA[INDIP. YEAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="476" y="0" width="79" height="30" forecolor="#FFFFFF" backcolor="#FF0000" uuid="f7fd221e-d888-45f3-bec6-80b80190f66b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="125196cd-75c2-4b8d-8ce5-961ed681b7dc"/>
+				</reportElement>
+				<text><![CDATA[GOV FORM]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="81" height="30" uuid="4a6256c6-9f29-4766-bc2d-f85ea357b721">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ef54374-55a6-4a79-b3e0-6e1a73283db9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="0" width="79" height="30" uuid="28a35a57-f288-4c6b-a659-acd7d7df405e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1baa164-342e-4a9c-862d-fbc8e0270092"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="79" height="30" uuid="54a06771-f297-4146-ad3e-fa2028cbf161">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f8bc76b0-5b1b-4c0f-b700-f783721a09c7"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{capital_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="0" width="79" height="30" uuid="9aef570c-2d16-4f5d-9a4a-2fa6ca408699">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b058a364-71cd-4834-bae2-d4ae6532bdba"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Region}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="79" height="30" uuid="51e23316-2904-4dc0-8398-b24f3c1050dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="94333e61-5651-48f1-bc98-829f2b229831"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Continent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="79" height="30" uuid="32eb2f09-4c14-47d3-9632-1b3364b4976f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4795e2c1-baf8-448a-ae6d-3aa5be644030"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{IndepYear}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="0" width="79" height="30" uuid="68e858c6-01aa-45d3-bc3b-c538eb692d48">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="125196cd-75c2-4b8d-8ce5-961ed681b7dc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{GovernmentForm}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
