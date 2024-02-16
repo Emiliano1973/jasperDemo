@@ -23,12 +23,13 @@ public class JasperController {
     }
 
 
-    @GetMapping( produces = MediaType.APPLICATION_PDF_VALUE)
+    @GetMapping
     @ResponseBody
     public ResponseEntity<InputStreamResource> getReport() {
         JasperResponse jasperResponse=this.reportService.getJasperResponse();
         return ResponseEntity.ok().contentLength(jasperResponse.getResponseLength())
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + jasperResponse.getFileName() + "\"")
+                .contentType(MediaType.parseMediaType(jasperResponse.getContentType()))
                 .body(new InputStreamResource(jasperResponse.getResponse()));
     }
 
