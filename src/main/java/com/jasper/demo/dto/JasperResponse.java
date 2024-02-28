@@ -1,19 +1,18 @@
 package com.jasper.demo.dto;
 
+import org.springframework.http.MediaType;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-public class JasperResponse {
+public final class JasperResponse {
 
     private final String fileName;
-    private final String contentType;
-
+    private final MediaType contentType;
     private final int responseLength;
     private final byte[] response ;
 
-
-
-    public JasperResponse(String fileName, String contentType, byte[] response) {
+    public JasperResponse(final String fileName, final MediaType contentType, final byte[] response) {
         this.fileName = fileName;
         this.contentType = contentType;
         this.responseLength=response.length;
@@ -26,7 +25,7 @@ public class JasperResponse {
         return this.fileName;
     }
 
-    public String getContentType() {
+    public MediaType getContentType() {
         return this.contentType;
     }
 
