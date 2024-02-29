@@ -6,7 +6,6 @@ import com.jasper.demo.services.ReportService;
 import com.jasper.demo.utils.ContentType;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
