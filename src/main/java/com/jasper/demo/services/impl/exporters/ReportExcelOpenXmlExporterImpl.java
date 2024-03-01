@@ -26,7 +26,7 @@ public class ReportExcelOpenXmlExporterImpl implements ReportExporter {
             exporter.exportReport();
             report = outputStream.toByteArray();
         } catch (IOException | JRException e) {
-            throw new RuntimeException("Error to export report :"+e.getMessage(), e);
+            throw new RuntimeException("Error in export report :"+e.getMessage(), e);
         }
         return report;
     }

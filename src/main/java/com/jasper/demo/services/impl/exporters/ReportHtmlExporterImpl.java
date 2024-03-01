@@ -24,7 +24,7 @@ public class ReportHtmlExporterImpl implements ReportExporter {
             exporter.exportReport();
             report = outputStream.toByteArray();
         } catch (IOException | JRException e) {
-
+            throw new RuntimeException("Error in export report :"+e.getMessage(), e);
         }
         return report;
     }
